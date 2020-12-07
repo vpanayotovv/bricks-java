@@ -57,7 +57,7 @@ this is the second
         }
     }
 
-    static int[][] positionBlock(int[][] firstLayer, int[][] secondLayer, int blockNumber, int finalNumberOfBlocks) {
+    private static int[][] positionBlock(int[][] firstLayer, int[][] secondLayer, int blockNumber, int finalNumberOfBlocks) {
 
         System.out.println("Step " + blockNumber);
         printBiDimensionalArray(secondLayer);
