@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Main{
     public static void main(String[] args) {
 
 		/*
@@ -23,6 +23,7 @@ this is the first input that I check
 21 21 22 22 23 23 24 24
 
 this is the second
+
 		 */
 
         Scanner scanner = new Scanner(System.in);
@@ -63,6 +64,7 @@ this is the second
 
         blockNumber++;
 
+        //bottom of recursion
         if (blockNumber == finalNumberOfBlocks) {
             return secondLayer;
 
