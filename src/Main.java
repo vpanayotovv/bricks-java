@@ -1,5 +1,5 @@
-import core.ConsolePrinterImpl;
-import core.ConsoleReaderImpl;
+import util.ConsolePrinterImpl;
+import util.ConsoleReaderImpl;
 import core.Engine;
 import core.EngineImpl;
 

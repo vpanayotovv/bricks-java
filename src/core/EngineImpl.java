@@ -1,5 +1,8 @@
 package core;
 
+import util.ConsolePrinter;
+import util.ConsoleReader;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
