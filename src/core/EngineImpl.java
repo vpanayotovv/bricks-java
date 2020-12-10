@@ -1,15 +1,17 @@
 package core;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class EngineImpl implements Engine {
 
     private final ConsolePrinter printer;
+    private final ConsoleReader reader;
 
-    public EngineImpl(ConsolePrinter printer) {
+    public EngineImpl(ConsolePrinter printer, ConsoleReader reader) {
         this.printer = printer;
+        this.reader = reader;
     }
 
     @Override
@@ -34,12 +36,15 @@ this is the first input that I check
 this is the second
 
 		 */
-
-        Scanner scanner = new Scanner(System.in);
 //        printer = new ConsolePrinterImpl();
 
 
-        String[] line = scanner.nextLine().split("\\s+");
+        String[] line = new String[0];
+        try {
+            line = reader.read().split("\\s+");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         int rows = Integer.parseInt(line[0]);
         int cols = Integer.parseInt(line[1]);
 
@@ -47,7 +52,12 @@ this is the second
         //checking that rows and cols are divided by 2 and in range
         if (rows % 2 == 0 && cols % 2 == 0 && rows < 100 && cols < 100) {
 
-            int[][] firstLayer = readInput(scanner, rows, cols);
+            int[][] firstLayer = new int[0][];
+            try {
+                firstLayer = readInput(reader, rows, cols);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             int[][] secondLayer = createEmptyLayer(rows, cols);
             int blockNumber = 0;
             int finalNumberOfBlocks = ((rows * cols) / 2) + 1;
@@ -112,7 +122,7 @@ this is the second
     }
 
 
-    private static int[][] createEmptyLayer(int rows, int cols) {
+    private int[][] createEmptyLayer(int rows, int cols) {
 
         int[][] layer = new int[rows][cols];
 
@@ -126,7 +136,7 @@ this is the second
 
     }
 
-    private static boolean isValidPosition(int[] layer, int j) {
+    private boolean isValidPosition(int[] layer, int j) {
         return layer.length > j + 1 && layer[j] != layer[j + 1];
     }
 
@@ -137,7 +147,7 @@ this is the second
         return secondLayerWithNewHorizontalBlock;
     }
 
-    private static List<Integer> findFirstFreeIndexInBidimensionalArray(int[][] matrix) {
+    private List<Integer> findFirstFreeIndexInBidimensionalArray(int[][] matrix) {
         List<Integer> indexes = new ArrayList<>();
 
         for (int i = 0; i < matrix.length; i++) {
@@ -152,12 +162,12 @@ this is the second
         return indexes;
     }
 
-    private static int[][] readInput(Scanner scanner, int rows, int cols) {
+    private int[][] readInput(ConsoleReader reader, int rows, int cols) throws IOException {
 
         int[][] layer = new int[rows][cols];
 
         for (int row = 0; row < rows; row++) {
-            String[] currentLine = scanner.nextLine().split("\\s+");
+            String[] currentLine = reader.read().split("\\s+");
             for (int col = 0; col < cols; col++) {
                 layer[row][col] = Integer.parseInt(currentLine[col].trim());
             }
