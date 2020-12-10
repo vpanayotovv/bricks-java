@@ -36,8 +36,6 @@ this is the first input that I check
 this is the second
 
 		 */
-//        printer = new ConsolePrinterImpl();
-
 
         String[] line = new String[0];
         try {
@@ -66,15 +64,15 @@ this is the second
             int[][] solution = positionBlock(firstLayer, secondLayer, blockNumber, finalNumberOfBlocks);
 
 
-            System.out.println("-----------SOLUTION----------");
+            printer.printMassage("-----------SOLUTION----------");
             if (solution != null) {
                 printer.print(solution);
             } else {
-                System.out.println("No solution");
+                printer.printMassage("No solution");
             }
 
         } else {
-            System.out.println("Wrong input");//print validation massage
+            printer.printMassage("Wrong input");//print validation massage
         }
     }
 
@@ -82,7 +80,7 @@ this is the second
 
 
 
-        System.out.println("Step " + blockNumber);
+        printer.printMassage("Step " + blockNumber);
         printer.print(secondLayer);
 
         blockNumber++;

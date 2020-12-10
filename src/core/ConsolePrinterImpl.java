@@ -10,4 +10,9 @@ public class ConsolePrinterImpl implements ConsolePrinter {
             System.out.println();
         }
     }
+
+    @Override
+    public void printMassage(String massage) {
+        System.out.println(massage);
+    }
 }
