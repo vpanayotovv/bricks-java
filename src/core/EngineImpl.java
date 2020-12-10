@@ -39,7 +39,7 @@ this is the second
 
         String[] line = new String[0];
         try {
-            line = reader.read().split("\\s+");
+            line = reader.readLine().split("\\s+");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,7 +52,7 @@ this is the second
 
             int[][] firstLayer = new int[0][];
             try {
-                firstLayer = readInput(reader, rows, cols);
+                firstLayer = reader.readInput(rows, cols);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -77,8 +77,6 @@ this is the second
     }
 
     private int[][] positionBlock(int[][] firstLayer, int[][] secondLayer, int blockNumber, int finalNumberOfBlocks) {
-
-
 
         printer.printMassage("Step " + blockNumber);
         printer.print(secondLayer);
@@ -119,7 +117,6 @@ this is the second
         }
     }
 
-
     private int[][] createEmptyLayer(int rows, int cols) {
 
         int[][] layer = new int[rows][cols];
@@ -158,21 +155,6 @@ this is the second
             }
         }
         return indexes;
-    }
-
-    private int[][] readInput(ConsoleReader reader, int rows, int cols) throws IOException {
-
-        int[][] layer = new int[rows][cols];
-
-        for (int row = 0; row < rows; row++) {
-            String[] currentLine = reader.read().split("\\s+");
-            for (int col = 0; col < cols; col++) {
-                layer[row][col] = Integer.parseInt(currentLine[col].trim());
-            }
-        }
-
-        return layer;
-
     }
 
 }

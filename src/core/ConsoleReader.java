@@ -4,5 +4,7 @@ import java.io.IOException;
 
 public interface ConsoleReader {
 
-    String read() throws IOException;
+    String readLine() throws IOException;
+
+    int[][] readInput(int rows, int cols) throws IOException;
 }
