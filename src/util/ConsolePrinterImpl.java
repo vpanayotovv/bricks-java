@@ -3,12 +3,15 @@ package util;
 public class ConsolePrinterImpl implements ConsolePrinter {
     @Override
     public void print(int[][] matrixToPrint) {
+        StringBuilder builder = new StringBuilder();
+
         for (int i = 0; i < matrixToPrint.length; i++) {
             for (int j = 0; j < matrixToPrint[i].length; j++) {
-                System.out.print(matrixToPrint[i][j] + " ");
+                builder.append(matrixToPrint[i][j]).append(" ");
             }
-            System.out.println();
+            builder.append(System.lineSeparator());
         }
+        System.out.println(builder.toString().trim());
     }
 
     @Override
