@@ -1,5 +1,5 @@
 # bricks-java
-**Assignment that I implemented for interview.**
+**Assignment that I implemented.**
 
 **This is the task:**
 
